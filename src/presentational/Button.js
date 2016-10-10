@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button = ({ children, onPress }) => (
-    <input type="button" onClick={onPress}>{children}</input>
+    <button onClick={onPress}>{children}</button>
 );
 
 Button.propTypes = {

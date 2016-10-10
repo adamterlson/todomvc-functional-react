@@ -6,11 +6,14 @@ const Container = ({
     display,
     flexDirection,
     centered,
+    float,
 }) => (
     <div style={{
         transform: rotate ? `rotate(${rotate}deg)` : null,
-        display,
+        display: 'flex',
+        position: 'relative',
         flexDirection,
+        float,
         alignItems: centered ? 'center' : 'flex-start'
     }}>
         {children}
@@ -20,15 +23,16 @@ const Container = ({
 Container.propTypes = {
     children: React.PropTypes.node.isRequired,
     rotate: React.PropTypes.number,
-    display: React.PropTypes.oneOf(['flex']),
     flexDirection: React.PropTypes.oneOf(['row','column']),
     centered: React.PropTypes.bool,
+    float: React.PropTypes.oneOf(['left', 'right']),
 };
 
 Container.defaultProps = {
     display: 'flex',
     flexDirection: 'column',
     centered: false,
+    float: null,
 };
 
 export default Container;
