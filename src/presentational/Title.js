@@ -2,7 +2,10 @@ import React from 'react';
 import Text from './Text';
 
 const Title = ({ children }) => (
-    <Text align="center">{children}</Text>
+    <Text
+        fontSize={100}
+        fontWeight={100}
+        color={'mystery'}>{children}</Text>
 );
 
 Title.propTypes = {
