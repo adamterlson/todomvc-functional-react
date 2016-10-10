@@ -3,9 +3,9 @@ import Container from './Container';
 
 const List = ({ renderRow, dataSource, horizontal }) => (
     <Container flexDirection={horizontal ? 'row' : 'column'}>
-        {dataSource.map((rowData, i) => (
-            <div key={rowData.key || i}>{renderRow(rowData)}</div>
-        ))}
+        {dataSource.map(
+            (rowData, i) => renderRow({ key: i, ...rowData }, i)
+        )}
     </Container>
 );
 

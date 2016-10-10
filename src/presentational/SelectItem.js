@@ -1,16 +1,18 @@
 import React from 'react';
+import Checkbox from './Checkbox';
+import Label from './Label';
 import RowOfItems from './RowOfItems';
-import Text from './Text';
 
-const SelectItem = ({ selected, children }) => (
+const SelectItem = ({ selected, children, key }) => (
     <RowOfItems>
-        {selected ? 'Y' : 'N'} <Text>{children}</Text>
+        <Checkbox checked={selected} key={key} /><Label for={key}>{children}</Label>
     </RowOfItems>
 );
 
 SelectItem.propTypes = {
-    selected: React.PropTypes.bool,
     children: React.PropTypes.node.isRequired,
+    key: React.PropTypes.string.isRequired,
+    selected: React.PropTypes.bool,
 };
 
 SelectItem.defaultProps = {

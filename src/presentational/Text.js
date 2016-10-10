@@ -15,8 +15,6 @@ const Text = ({
         color: colors[color],
         fontSize: fontSize + 'px',
         fontWeight,
-        fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
-        textRendering: 'optimizeLegibility',
     }}>{children}</span>
 );
 
@@ -26,6 +24,7 @@ Text.propTypes = {
 
 Text.defaultProps = {
     color: 'standard',
+    fontWeight: 300,
 }
 
 export default Text;

@@ -2,7 +2,7 @@ import React from 'react';
 import List from './List';
 import Button from './Button';
 
-const ButtonList = (props) => (
+const ListButton = (props) => (
     <List
         {...props}
         renderRow={
@@ -10,4 +10,4 @@ const ButtonList = (props) => (
         } />
 );
 
-export default ButtonList;
+export default ListButton;

@@ -11,10 +11,12 @@ const colors = {
 }
 
 const Icon = ({ name, color }) => (
-    <span style={{
+    <div style={{
+        width: 22,
+        height: 22,
         fontSize: '22px',
         color: colors[color],
-    }}>{icons[name]}</span>
+    }}>{icons[name]}</div>
 );
 
 Icon.propTypes = {
