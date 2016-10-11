@@ -5,7 +5,6 @@ import ComposeWith from '../presentational/ComposeWith';
 import Container from '../presentational/Container';
 import Icon from '../presentational/Icon';
 import ListButton from '../presentational/ListButton';
-import ListSelectItem from '../presentational/ListSelectItem';
 import Rotate from '../presentational/Rotate';
 import RowOfItems from '../presentational/RowOfItems';
 import SpaceChildren from '../presentational/SpaceChildren';

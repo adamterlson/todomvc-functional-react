@@ -6,7 +6,8 @@ store.set(() => ({
     todos: [
         { completed: false, description: 'Finish working'},
         { completed: true, description: 'Start working'},
-    ]
+    ],
+    filter: 'completed',
 }));
 
 const App = () => (

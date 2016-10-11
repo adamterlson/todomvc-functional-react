@@ -2,8 +2,8 @@ import React from 'react';
 
 const noop = x => x;
 
-export default (store, getMap, setMap = noop) => Component => {
-    class WithStoreHOC extends React.PureComponent {
+export default (store, setMap = noop) => Component => {
+    class ChangesStateHOC extends React.PureComponent {
         constructor(props) {
             super(props);
 
@@ -14,15 +14,15 @@ export default (store, getMap, setMap = noop) => Component => {
         }
         render() {
             const props = this.props;
-            const getProps = getMap(this.state, props);
+            const setProps = setMap(store.set, props);
 
             return (
                 <Component
                     {...props}
-                    {...getProps} />
+                    {...setProps} />
             );
         }
     };
 
-    return WithStoreHOC;
+    return ChangesStateHOC;
 }
