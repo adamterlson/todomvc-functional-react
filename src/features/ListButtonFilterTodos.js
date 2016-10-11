@@ -15,6 +15,7 @@ export default compose(
         todoStore,
         set => ({
             setFilter: filter => set(state => ({
+                ...state,
                 filter,
             }))
         })

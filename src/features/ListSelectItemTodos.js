@@ -6,7 +6,6 @@ import SelectItem from '../presentational/SelectItem';
 import withState from '../enhancers/withState';
 import changesState from '../enhancers/changesState';
 import listIsFilterable from '../enhancers/listIsFilterable';
-import propMap from '../enhancers/propMap';
 import listOf from '../enhancers/listOf';
 
 export default compose(
@@ -32,9 +31,9 @@ export default compose(
         'dataSource',
         (dataItem, { filter }) => {
             if (filter === 'active') {
-                return dataItem.completed;
-            } else if (filter === 'completed') {
                 return !dataItem.completed;
+            } else if (filter === 'completed') {
+                return dataItem.completed;
             }
             return true;
         }
@@ -42,6 +41,7 @@ export default compose(
     listOf(
         SelectItem,
         (todo, { toggleTodo }) => ({
+            description: todo.description,
             children: todo.description,
             selected: todo.completed,
             onPress: () => toggleTodo(todo.description),

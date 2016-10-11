@@ -4,7 +4,6 @@ import Canvas from '../presentational/Canvas';
 import ComposeWith from '../presentational/ComposeWith';
 import Container from '../presentational/Container';
 import Icon from '../presentational/Icon';
-import ListButton from '../presentational/ListButton';
 import Rotate from '../presentational/Rotate';
 import RowOfItems from '../presentational/RowOfItems';
 import SpaceChildren from '../presentational/SpaceChildren';

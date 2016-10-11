@@ -5,7 +5,7 @@ import Container from './Container';
 const List = ({ renderRow, dataSource, horizontal }) => (
     <Container flexDirection={horizontal ? 'row' : 'column'}>
         {dataSource.map(
-            (rowData, i) => renderRow({ key: i, ...rowData }, i)
+            (rowData, i) => <Container key={i}>{renderRow(rowData, i)}</Container>
         )}
     </Container>
 );
