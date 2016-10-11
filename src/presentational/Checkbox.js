@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Checkbox = ({ checked, key }) => (
-    <input type="checkbox" checked={checked} id={key} />
+const Checkbox = ({ checked, key, onPress }) => (
+    <input type="checkbox" checked={checked} id={key} onChange={onPress} />
 );
 
 Checkbox.propTypes = {

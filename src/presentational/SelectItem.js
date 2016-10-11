@@ -3,9 +3,9 @@ import Checkbox from './Checkbox';
 import Label from './Label';
 import RowOfItems from './RowOfItems';
 
-const SelectItem = ({ selected, children, key }) => (
+const SelectItem = ({ onPress, selected, children, key }) => (
     <RowOfItems>
-        <Checkbox checked={selected} key={key} /><Label for={key}>{children}</Label>
+        <Checkbox checked={selected} key={key} onPress={onPress} /><Label for={key}>{children}</Label>
     </RowOfItems>
 );
 

@@ -13,6 +13,8 @@ import Text from '../presentational/Text';
 import TextInput from '../presentational/TextInput';
 import Title from '../presentational/Title';
 
+import ListSelectItemTodos from '../features/ListSelectItemTodos';
+
 const Todos = () => (
     <Canvas centered>
         <Title>todos</Title>
@@ -24,7 +26,7 @@ const Todos = () => (
                     </Rotate>
                     <TextInput placeholder="What needs to be done?" />
                 </RowOfItems>
-                <ListSelectItem dataSource={[{ checked: false, children: 'hi' }]} />
+                <ListSelectItemTodos />
                 <Container>
                     <ComposeWith num={5} children={({ num }) => (
                         <Text>{num} items left</Text>
