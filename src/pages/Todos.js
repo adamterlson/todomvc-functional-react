@@ -13,6 +13,7 @@ import TextInput from '../presentational/TextInput';
 import Title from '../presentational/Title';
 
 import ListSelectItemTodos from '../features/ListSelectItemTodos';
+import ListButtonFilterTodos from '../features/ListButtonFilterTodos';
 
 const Todos = () => (
     <Canvas centered>
@@ -30,7 +31,7 @@ const Todos = () => (
                     <ComposeWith num={5} children={({ num }) => (
                         <Text>{num} items left</Text>
                     )} />
-                    <ListButton dataSource={[{ children: 'foo' },{ children: 'bar' }]} horizontal />
+                    <ListButtonFilterTodos dataSource={[{ children: 'foo' },{ children: 'bar' }]} horizontal />
                 </Container>
             </SpaceChildren>
         </Card>

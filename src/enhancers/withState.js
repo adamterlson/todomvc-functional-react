@@ -2,7 +2,7 @@ import React from 'react';
 
 const noop = x => x;
 
-export default (store, getMap, setMap = noop) => Component => {
+export default (store, getMap = noop, setMap = noop) => Component => {
     class WithStoreHOC extends React.PureComponent {
         constructor(props) {
             super(props);
