@@ -5,7 +5,7 @@ const Button = ({ children, onPress, active }) => (
         style={{
             padding: '3px 7px',
             textDecoration: 'none',
-            border: active ? '1px solid rgba(175, 47, 47, 0.2)' : 0,
+            border: active ? '1px solid rgba(175, 47, 47, 0.2)' : '1px solid transparent',
             borderRadius: 3
         }}
         onClick={onPress}>{children}

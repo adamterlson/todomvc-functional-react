@@ -11,6 +11,7 @@ import Text from '../presentational/Text';
 import TextInput from '../presentational/TextInput';
 import Title from '../presentational/Title';
 
+import WithTodos from '../features/WithTodos';
 import ListSelectItemTodos from '../features/ListSelectItemTodos';
 import ListButtonSetFilter from '../features/ListButtonSetFilter';
 
@@ -27,9 +28,15 @@ const Todos = () => (
                 </RowOfItems>
                 <ListSelectItemTodos />
                 <Container>
-                    <ComposeWith num={5} children={({ num }) => (
-                        <Text>{num} items left</Text>
-                    )} />
+                    <WithTodos>
+                        {({ total, completed, remaining }) => (
+                            <Text>
+                                <Text>{total} items total</Text>
+                                <Text>{remaining} remaining</Text>
+                                <Text>{completed} completed</Text>
+                            </Text>
+                        )}
+                    </WithTodos>
                     <ListButtonSetFilter horizontal />
                 </Container>
             </SpaceChildren>
