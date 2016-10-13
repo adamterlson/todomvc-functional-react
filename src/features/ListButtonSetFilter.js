@@ -1,18 +1,15 @@
-import React from 'react';
 import compose from './compose';
 import todoStore from '../store';
 
 import List from '../presentational/List';
 
-import setProps from '../enhancers/setProps';
+import listOf from '../enhancers/listOf';
 import withState from '../enhancers/withState';
 
 import ButtonSetFilter from './ButtonSetFilter';
 
 export default compose(
-    setProps({
-        renderRow: (props) => <ButtonSetFilter {...props} />,
-    }),
+    listOf(ButtonSetFilter),
     withState(
         todoStore,
         state => ({

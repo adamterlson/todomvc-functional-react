@@ -1,12 +1,7 @@
 import React from 'react';
-import propMap from './propMap';
+import setProps from './setProps';
 
-export default (ItemComponent, mapProps) => ListComponent => props => {
-    const EnhancedItemComponent = propMap(p => mapProps(p, props))(ItemComponent);
-    const renderRow = rowData => <EnhancedItemComponent {...rowData} />
-    return (
-        <ListComponent
-            {...props}
-            renderRow={renderRow} />
-    );
-};
+export default (Component, propName = 'renderRow') =>
+    setProps({
+        [propName]: (props) => <Component {...props} />,
+    });

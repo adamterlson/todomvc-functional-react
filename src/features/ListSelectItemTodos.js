@@ -1,10 +1,14 @@
 import compose from './compose';
 import store from '../store';
 
+import SelectItemTodo from '../features/SelectItemTodo';
+
 import List from '../presentational/List';
+import listOf from '../enhancers/listOf';
 import withState from '../enhancers/withState';
 
 export default compose(
+    listOf(SelectItemTodo),
     withState(
         store,
         state => ({
