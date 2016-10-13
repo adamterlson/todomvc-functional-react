@@ -25,7 +25,7 @@ const Todos = () => (
                     <Rotate degrees={90}>
                         <Icon name="chevron" />
                     </Rotate>
-                    <TextInputAddTodo placeholder="What needs to be done?" />
+                    <TextInputAddTodo placeholder="What needs to be done?" key="wtf" />
                 </RowOfItems>
                 <ListSelectItemTodos />
                 <Container>

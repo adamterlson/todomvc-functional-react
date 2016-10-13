@@ -6,7 +6,7 @@ export default (keyMap) => Component => {
     const KeyMapHOC = props => (
         <Component
             {...props}
-            onKeyDown={e => (keyMap[e.key] || noop)(e, props)} />
+            onKeyDown={e => (keyMap(props)[e.key] || noop)(e, props)} />
     )
 
     return KeyMapHOC;

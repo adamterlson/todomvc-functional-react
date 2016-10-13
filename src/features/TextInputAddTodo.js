@@ -4,9 +4,24 @@ import store from '../store';
 import TextInput from '../presentational/TextInput';
 import propMap from '../enhancers/propMap';
 import updateStore from '../enhancers/updateStore';
+import withProps from '../enhancers/withProps';
+import ownState from '../enhancers/ownState';
 import keyMap from '../enhancers/keyMap';
 
 export default compose(
+    ownState(
+        set => ({
+            setValue: e => set(state => ({
+                ...state,
+                value: e.target.value,
+            })),
+            clearValue: () => set(state => ({
+                ...state,
+                value: '',
+            }))
+        }),
+        { value: '' },
+    ),
     updateStore(
         store,
         set => ({
@@ -20,7 +35,19 @@ export default compose(
                 })),
         })
     ),
-    keyMap({
-        Enter: (e, { saveTodo }) => saveTodo(e.target.value)
-    })
+    keyMap(
+        ({ clearValue, saveTodo }) => ({
+            Enter: e => {
+                saveTodo(e.target.value);
+                clearValue();
+            },
+            Escape: clearValue,
+        })
+    ),
+    propMap(
+        props => ({
+            ...props,
+            onChange: props.setValue,
+        })
+    )
 )(TextInput);

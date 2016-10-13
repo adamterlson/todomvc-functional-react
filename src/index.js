@@ -9,6 +9,11 @@ console.debugger = (...args) => {
     return args[0];
 };
 
+console.tap = (...args) => {
+    console.log(...args);
+    return args[0];
+};
+
 ReactDOM.render(
   <App />,
   document.getElementById('root')
