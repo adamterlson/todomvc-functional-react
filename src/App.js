@@ -7,7 +7,12 @@ store.set(() => ({
         { completed: false, description: 'Finish working'},
         { completed: true, description: 'Start working'},
     ],
-    filter: 'completed',
+    filters: [
+        'active',
+        'all',
+        'completed',
+    ],
+    activeFilter: 'completed',
 }));
 
 const App = () => (

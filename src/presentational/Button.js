@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Button = ({ children, onPress }) => (
+const Button = ({ children, onPress, active }) => (
     <a
         style={{
             padding: '3px 7px',
             textDecoration: 'none',
-            border: '1px solid rgba(175, 47, 47, 0.2)',
+            border: active ? '1px solid rgba(175, 47, 47, 0.2)' : 0,
             borderRadius: 3
         }}
         onClick={onPress}>{children}

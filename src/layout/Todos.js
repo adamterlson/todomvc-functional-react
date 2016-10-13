@@ -12,7 +12,8 @@ import TextInput from '../presentational/TextInput';
 import Title from '../presentational/Title';
 
 import ListSelectItemTodos from '../features/ListSelectItemTodos';
-import ListButtonFilterTodos from '../features/ListButtonFilterTodos';
+import ListButtonSetFilter from '../features/ListButtonSetFilter';
+import SelectItemTodo from '../features/SelectItemTodo';
 
 const Todos = () => (
     <Canvas centered>
@@ -25,12 +26,14 @@ const Todos = () => (
                     </Rotate>
                     <TextInput placeholder="What needs to be done?" />
                 </RowOfItems>
-                <ListSelectItemTodos />
+                <ListSelectItemTodos
+                    renderRow={(rowData) => <SelectItemTodo {...rowData} />}
+                />
                 <Container>
                     <ComposeWith num={5} children={({ num }) => (
                         <Text>{num} items left</Text>
                     )} />
-                    <ListButtonFilterTodos dataSource={[{ children: 'foo' },{ children: 'bar' }]} horizontal />
+                    <ListButtonSetFilter horizontal />
                 </Container>
             </SpaceChildren>
         </Card>

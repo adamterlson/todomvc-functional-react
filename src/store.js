@@ -2,7 +2,7 @@
  * Do not use this, consider Redux instead.  Demo purposes only. :)
  */
 let state = {};
-const subscribers = [];
+let subscribers = [];
 
 export default {
     get() { return state; },
@@ -12,5 +12,10 @@ export default {
     },
     subscribe(cb) {
         subscribers.push(cb);
+        return () => {
+            subscribers = subscribers.filter(
+                s => s !== cb
+            );
+        }
     }
 }
