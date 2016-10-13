@@ -4,13 +4,13 @@ import todoStore from '../store';
 import List from '../presentational/List';
 
 import listOf from '../enhancers/listOf';
-import withState from '../enhancers/withState';
+import withStore from '../enhancers/withStore';
 
 import ButtonSetFilter from './ButtonSetFilter';
 
 export default compose(
     listOf(ButtonSetFilter),
-    withState(
+    withStore(
         todoStore,
         state => ({
             dataSource: state.filters.map(filter => ({

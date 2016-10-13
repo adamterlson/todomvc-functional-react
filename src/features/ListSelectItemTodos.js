@@ -5,11 +5,11 @@ import SelectItemTodo from '../features/SelectItemTodo';
 
 import List from '../presentational/List';
 import listOf from '../enhancers/listOf';
-import withState from '../enhancers/withState';
+import withStore from '../enhancers/withStore';
 
 export default compose(
     listOf(SelectItemTodo),
-    withState(
+    withStore(
         store,
         state => ({
             dataSource: state.todos.filter(

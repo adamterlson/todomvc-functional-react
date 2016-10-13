@@ -4,18 +4,18 @@ import todoStore from '../store';
 
 import Button from '../presentational/Button';
 
-import withState from '../enhancers/withState';
-import changesState from '../enhancers/changesState';
+import withStore from '../enhancers/withStore';
+import updateStore from '../enhancers/updateStore';
 
 const ButtonSetFilter = compose(
-    withState(
+    withStore(
         todoStore,
         (state, { filter }) => ({
             children: filter,
             active: state.activeFilter === filter,
         })
     ),
-    changesState(
+    updateStore(
         todoStore,
         (set, { filter }) => ({
             onPress: () => set(state => ({

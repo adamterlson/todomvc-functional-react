@@ -3,11 +3,11 @@ import store from '../store';
 
 import TextInput from '../presentational/TextInput';
 import propMap from '../enhancers/propMap';
-import changesState from '../enhancers/changesState';
+import updateStore from '../enhancers/updateStore';
 import keyMap from '../enhancers/keyMap';
 
 export default compose(
-    changesState(
+    updateStore(
         store,
         set => ({
             saveTodo: description =>

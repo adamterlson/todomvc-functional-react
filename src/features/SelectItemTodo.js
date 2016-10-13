@@ -3,7 +3,7 @@ import store from '../store';
 
 import SelectItem from '../presentational/SelectItem';
 import propMap from '../enhancers/propMap';
-import changesState from '../enhancers/changesState';
+import updateStore from '../enhancers/updateStore';
 
 export default compose(
     propMap(
@@ -12,7 +12,7 @@ export default compose(
             description: todo.description,
         })
     ),
-    changesState(
+    updateStore(
         store,
         (set, { description }) => ({
             onPress: () =>

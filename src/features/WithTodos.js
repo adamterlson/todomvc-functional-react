@@ -1,11 +1,11 @@
 import compose from './compose';
 import store from '../store';
 
-import withState from '../enhancers/withState';
+import withStore from '../enhancers/withStore';
 import childrenAsFunction from '../enhancers/childrenAsFunction';
 
 export default compose(
-    withState(
+    withStore(
         store,
         state => ({
             total: state.todos.length,
