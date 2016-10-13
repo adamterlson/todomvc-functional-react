@@ -11,6 +11,7 @@ import Text from '../presentational/Text';
 import TextInput from '../presentational/TextInput';
 import Title from '../presentational/Title';
 
+import TextInputAddTodo from '../features/TextInputAddTodo';
 import WithTodos from '../features/WithTodos';
 import ListSelectItemTodos from '../features/ListSelectItemTodos';
 import ListButtonSetFilter from '../features/ListButtonSetFilter';
@@ -24,7 +25,7 @@ const Todos = () => (
                     <Rotate degrees={90}>
                         <Icon name="chevron" />
                     </Rotate>
-                    <TextInput placeholder="What needs to be done?" />
+                    <TextInputAddTodo placeholder="What needs to be done?" />
                 </RowOfItems>
                 <ListSelectItemTodos />
                 <Container>

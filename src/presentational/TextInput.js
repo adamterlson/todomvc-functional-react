@@ -1,10 +1,10 @@
 import React from 'react';
 
-const TextInput = ({ placeholder, onChange }) => (
+const TextInput = ({ placeholder, onKeyDown }) => (
     <input
         type="text"
         placeholder={placeholder}
-        onChange={onChange}
+        onKeyDown={onKeyDown}
         style={{
             background: 'transparent',
             border: 'none',
@@ -19,7 +19,7 @@ const TextInput = ({ placeholder, onChange }) => (
 
 TextInput.propTypes = {
     placeholder: React.PropTypes.string,
-    onChange: React.PropTypes.func.isRequired,
+    onKeyDown: React.PropTypes.func.isRequired,
 };
 
 TextInput.defaultProps = {
