@@ -6,7 +6,7 @@ import propMap from '../enhancers/propMap';
 import updateStore from '../enhancers/updateStore';
 import withProps from '../enhancers/withProps';
 import ownState from '../enhancers/ownState';
-import keyMap from '../enhancers/keyMap';
+import keyboard from '../enhancers/keyboard';
 
 export default compose(
     ownState(
@@ -35,15 +35,11 @@ export default compose(
                 })),
         })
     ),
-    keyMap(
-        ({ clearValue, saveTodo }) => ({
-            Enter: e => {
-                saveTodo(e.target.value);
-                clearValue();
-            },
-            Escape: clearValue,
-        })
-    ),
+    keyboard('onKeyDown', (on, { saveTodo, clearValue }) => {
+        on('Enter', saveTodo);
+        on('Enter', clearValue);
+        on('Escape', clearValue);
+    }),
     propMap(
         props => ({
             ...props,
