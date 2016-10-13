@@ -1,33 +1,34 @@
 import compose from './compose';
-import todoStore from '../store';
+import store from '../store';
 
 import List from '../presentational/List';
 import SelectItem from '../presentational/SelectItem';
 import withState from '../enhancers/withState';
 import changesState from '../enhancers/changesState';
-import listIsFilterable from '../enhancers/listIsFilterable';
+import filterProp from '../enhancers/filterProp';
 import listOf from '../enhancers/listOf';
 
 export default compose(
     withState(
-        todoStore,
+        store,
         state => ({
             dataSource: state.todos,
             filter: state.filter,
         })
     ),
     changesState(
-        todoStore,
+        store,
         set => ({
-            toggleTodo: description => set(state => ({
-                todos: state.todos.map(todo => ({
-                    ...todo,
-                    completed: todo.description === description ? !todo.completed : todo.completed,
+            toggleTodo: description =>
+                set(state => ({
+                    todos: state.todos.map(todo => ({
+                        ...todo,
+                        completed: todo.description === description ? !todo.completed : todo.completed,
+                    }))
                 }))
-            }))
         })
     ),
-    listIsFilterable(
+    filterProp(
         'dataSource',
         (dataItem, { filter }) => {
             if (filter === 'active') {

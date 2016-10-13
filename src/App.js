@@ -1,5 +1,5 @@
 import React from 'react';
-import Todos from './pages/Todos';
+import Todos from './layout/Todos';
 import store from './store';
 
 store.set(() => ({
