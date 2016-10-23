@@ -1,5 +1,5 @@
 import React from 'react';
-import Todos from './layout/Todos';
+import ScreenTodo from './layout/ScreenTodo';
 import store from './store';
 
 store.set(() => ({
@@ -16,15 +16,15 @@ store.set(() => ({
         },
     ],
     filters: [
-        'active',
         'all',
+        'active',
         'completed',
     ],
-    activeFilter: 'completed',
+    activeFilter: 'all',
 }));
 
 const App = () => (
-    <Todos />
+    <ScreenTodo />
 );
 
 export default App;
