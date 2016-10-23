@@ -4,11 +4,11 @@ import todoStore from '../store';
 
 import Button from '../presentational/Button';
 
-import withStore from '../enhancers/withStore';
+import usingStore from '../enhancers/usingStore';
 import updateStore from '../enhancers/updateStore';
 
 const ButtonSetFilter = compose(
-    withStore(
+    usingStore(
         todoStore,
         (state, { filter }) => ({
             children: filter,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (setMap, initialState) => Component => {
+export default (initialState, setMap) => Component => {
     class WithStoreHOC extends React.PureComponent {
         constructor(props) {
             super(props);

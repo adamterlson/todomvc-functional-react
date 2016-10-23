@@ -1,11 +1,11 @@
 import compose from './compose';
 import store from '../store';
 
-import withStore from '../enhancers/withStore';
-import childrenAsFunction from '../enhancers/childrenAsFunction';
+import usingStore from '../enhancers/usingStore';
+import ChildrenAsFunction from '../presentational/ChildrenAsFunction';
 
 export default compose(
-    withStore(
+    usingStore(
         store,
         state => ({
             total: state.todos.length,
@@ -14,6 +14,5 @@ export default compose(
             completed: state.todos
                 .filter(todo => todo.completed).length,
         })
-    ),
-    childrenAsFunction
-)();
+    )
+)(ChildrenAsFunction);

@@ -1,15 +1,15 @@
 import compose from './compose';
 import store from '../store';
 
-import SelectItemTodo from '../features/SelectItemTodo';
+import SelectItemTodo from '../connected/SelectItemTodo';
 
-import List from '../presentational/List';
+import ListView from '../presentational/ListView';
 import listOf from '../enhancers/listOf';
-import withStore from '../enhancers/withStore';
+import usingStore from '../enhancers/usingStore';
 
 export default compose(
     listOf(SelectItemTodo),
-    withStore(
+    usingStore(
         store,
         state => ({
             dataSource: state.todos.filter(
@@ -24,4 +24,4 @@ export default compose(
             ),
         })
     )
-)(List);
+)(ListView);

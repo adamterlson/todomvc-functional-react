@@ -1,9 +1,7 @@
 import React from 'react';
 
-const noop = x => x;
-
 export default (event, register, exec) => Component => {
-    const KeyboardHOC = props => {
+    const KeyboardBindingsHOC = props => {
         // if (typeof onKeyDown === 'function') {
         // if (false) {
         //     const keyfn = onKeyDown(props);
@@ -46,5 +44,5 @@ export default (event, register, exec) => Component => {
         );
     }
 
-    return KeyboardHOC;
+    return KeyboardBindingsHOC;
 }

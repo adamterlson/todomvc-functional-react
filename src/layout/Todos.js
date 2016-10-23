@@ -1,20 +1,18 @@
 import React from 'react';
 import Card from '../presentational/Card';
 import Canvas from '../presentational/Canvas';
-import ComposeWith from '../presentational/ComposeWith';
 import Container from '../presentational/Container';
 import Icon from '../presentational/Icon';
 import Rotate from '../presentational/Rotate';
 import RowOfItems from '../presentational/RowOfItems';
 import SpaceChildren from '../presentational/SpaceChildren';
 import Text from '../presentational/Text';
-import TextInput from '../presentational/TextInput';
 import Title from '../presentational/Title';
 
-import TextInputAddTodo from '../features/TextInputAddTodo';
-import WithTodos from '../features/WithTodos';
-import ListSelectItemTodos from '../features/ListSelectItemTodos';
-import ListButtonSetFilter from '../features/ListButtonSetFilter';
+import TextInputAddTodo from '../connected/TextInputAddTodo';
+import WithTodos from '../connected/WithTodos';
+import ListSelectItemTodos from '../connected/ListSelectItemTodos';
+import ListButtonSetFilter from '../connected/ListButtonSetFilter';
 
 const Todos = () => (
     <Canvas centered>

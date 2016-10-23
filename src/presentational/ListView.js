@@ -2,7 +2,7 @@ import React from 'react';
 import Container from './Container';
 
 // TODO: UL + LI
-const List = ({ renderRow, dataSource, horizontal }) => (
+const ListView = ({ renderRow, dataSource, horizontal }) => (
     <Container flexDirection={horizontal ? 'row' : 'column'}>
         {dataSource.map(
             (rowData, i) => <Container key={i}>{renderRow(rowData, i)}</Container>
@@ -10,14 +10,14 @@ const List = ({ renderRow, dataSource, horizontal }) => (
     </Container>
 );
 
-List.propTypes = {
+ListView.propTypes = {
     horizontal: React.PropTypes.bool,
     renderRow: React.PropTypes.func.isRequired,
     dataSource: React.PropTypes.array.isRequired,
 };
 
-List.defaultProps = {
+ListView.defaultProps = {
     horizontal: false,
 };
 
-export default List;
+export default ListView;

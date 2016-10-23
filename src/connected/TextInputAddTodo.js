@@ -2,30 +2,30 @@ import compose from './compose';
 import store from '../store';
 
 import TextInput from '../presentational/TextInput';
+
+import keyboardBindings from '../enhancers/keyboardBindings';
 import propMap from '../enhancers/propMap';
+import updateState from '../enhancers/updateState';
 import updateStore from '../enhancers/updateStore';
-import withProps from '../enhancers/withProps';
-import ownState from '../enhancers/ownState';
-import keyboard from '../enhancers/keyboard';
 
 export default compose(
-    ownState(
+    updateState(
+        { value: '' },
         set => ({
-            setValue: e => set(state => ({
+            onChange: e => set(state => ({
                 ...state,
                 value: e.target.value,
             })),
-            clearValue: () => set(state => ({
+            onClear: () => set(state => ({
                 ...state,
                 value: '',
             }))
         }),
-        { value: '' },
     ),
     updateStore(
         store,
         set => ({
-            saveTodo: description =>
+            onSave: description =>
                 set(state => ({
                     ...state,
                     todos: [
@@ -35,15 +35,15 @@ export default compose(
                 })),
         })
     ),
-    keyboard('onKeyDown', (on, { saveTodo, clearValue }) => {
-        on('Enter', saveTodo);
-        on('Enter', clearValue);
-        on('Escape', clearValue);
+    keyboardBindings('onKeyDown', (listenTo, { onSave, onClear }) => {
+        listenTo('Enter', onSave);
+        listenTo('Enter', onClear);
+        listenTo('Escape', onClear);
     }),
     propMap(
         props => ({
             ...props,
-            onChange: props.setValue,
+            onChange: props.onChange,
         })
     )
 )(TextInput);
