@@ -12,10 +12,15 @@ const SelectItemTodo = compose(
     })),
     usingStore(
         store,
-        (state, { todoId }) => ({
-            selected: state.todos
-                .filter(todo => todo.todoId === todoId)[0].completed,
-        })
+        (state, { todoId }) => {
+            const todo = state.todos
+                .filter(todo => todo.todoId === todoId)[0];
+
+            return {
+                children: todo.description,
+                selected: todo.completed,
+            };
+        }
     ),
     updateStore(
         store,

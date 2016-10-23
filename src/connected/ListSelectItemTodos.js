@@ -11,20 +11,21 @@ export default compose(
     usingStore(
         store,
         state => ({
-            dataSource: state.todos.filter(
-                todo => {
-                    if (state.activeFilter === 'active') {
-                        return !todo.completed;
-                    } else if (state.activeFilter === 'completed') {
-                        return todo.completed;
+            dataSource: state.todos
+                .filter(
+                    todo => {
+                        if (state.activeFilter === 'active') {
+                            return !todo.completed;
+                        } else if (state.activeFilter === 'completed') {
+                            return todo.completed;
+                        }
+                        return true;
                     }
-                    return true;
-                }
-            ),
+                )
+                .map(todo => todo.todoId)
         })
     ),
-    listOf(SelectItemTodo, todo => ({
-        todoId: todo.todoId,
-        children: todo.description,
+    listOf(SelectItemTodo, todoId => ({
+        todoId,
     })),
 )(ListView);
