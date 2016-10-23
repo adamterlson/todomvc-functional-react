@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from './Container';
 
-// TODO: UL + LI
 const ListView = ({ renderRow, dataSource, horizontal }) => (
     <Container flexDirection={horizontal ? 'row' : 'column'}>
         {dataSource.map(
