@@ -5,7 +5,7 @@ const Title = ({ children }) => (
     <Text
         fontSize={100}
         fontWeight={100}
-        color="red"
+        color="mystery"
         children={children}
     />
 );
