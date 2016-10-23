@@ -1,7 +1,9 @@
 import React from 'react';
 import setProps from './setProps';
 
-export default (Component, propName = 'renderRow') =>
+const noop = x => x;
+
+export default (Component, propMap = noop, propName = 'renderRow') =>
     setProps({
-        [propName]: (props) => <Component {...props} />,
+        [propName]: (props) => <Component {...propMap(props)} />,
     });

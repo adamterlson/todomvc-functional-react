@@ -1,4 +1,4 @@
-import compose from './compose';
+import compose from '../compose';
 import store from '../store';
 
 import TextInput from '../presentational/TextInput';

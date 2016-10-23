@@ -1,27 +1,26 @@
-import compose from './compose';
+import compose from '../compose';
 import store from '../store';
 
 import SelectItem from '../presentational/SelectItem';
-import propMap from '../enhancers/propMap';
+import requires from '../enhancers/requires';
 import updateStore from '../enhancers/updateStore';
 
-export default compose(
-    propMap(
-        todo => ({
-            selected: todo.completed,
-            description: todo.description,
-        })
-    ),
+const SelectItemTodo = compose(
+    requires(PropTypes => ({
+        todoId: PropTypes.string.isRequired,
+    })),
     updateStore(
         store,
-        (set, { description }) => ({
-            onPress: () =>
+        (set, { todoId }) => ({
+            onChange: () =>
                 set(state => ({
                     todos: state.todos.map(todo => ({
                         ...todo,
-                        completed: todo.description === description ? !todo.completed : todo.completed,
+                        completed: todo.todoId === todoId ? !todo.completed : todo.completed,
                     }))
                 }))
         })
     )
 )(SelectItem);
+
+export default SelectItemTodo;

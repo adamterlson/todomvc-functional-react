@@ -2,20 +2,6 @@ import React from 'react';
 
 export default (event, register, exec) => Component => {
     const KeyboardBindingsHOC = props => {
-        // if (typeof onKeyDown === 'function') {
-        // if (false) {
-        //     const keyfn = onKeyDown(props);
-        //     return (
-        //         <Component
-        //             {...props}
-        //             onKeyDown={
-        //                 e => {
-        //                     props.onKeyDown && props.onKeyDown(e);
-        //                     return (keyfn[e.key] || noop)(e.target.value, props, e);
-        //                 }
-        //             } />
-        //     );
-        // }
         const cbs = [];
 
         const on = (key, handler) => {

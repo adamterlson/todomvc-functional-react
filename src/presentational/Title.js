@@ -5,7 +5,9 @@ const Title = ({ children }) => (
     <Text
         fontSize={100}
         fontWeight={100}
-        color={'mystery'}>{children}</Text>
+        color="red"
+        children={children}
+    />
 );
 
 Title.propTypes = {

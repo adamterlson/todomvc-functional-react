@@ -4,8 +4,16 @@ import store from './store';
 
 store.set(() => ({
     todos: [
-        { completed: false, description: 'Finish working'},
-        { completed: true, description: 'Start working'},
+        {
+            todoId: 'Finish working',
+            completed: false,
+            description: 'Finish working'
+        },
+        {
+            todoId: 'Start working',
+            completed: true,
+            description: 'Start working'
+        },
     ],
     filters: [
         'active',

@@ -1,4 +1,4 @@
-import compose from './compose';
+import compose from '../compose';
 import store from '../store';
 
 import SelectItemTodo from '../connected/SelectItemTodo';
@@ -8,7 +8,6 @@ import listOf from '../enhancers/listOf';
 import usingStore from '../enhancers/usingStore';
 
 export default compose(
-    listOf(SelectItemTodo),
     usingStore(
         store,
         state => ({
@@ -23,5 +22,10 @@ export default compose(
                 }
             ),
         })
-    )
+    ),
+    listOf(SelectItemTodo, todo => ({
+        todoId: todo.description,
+        selected: todo.completed,
+        children: todo.description,
+    })),
 )(ListView);

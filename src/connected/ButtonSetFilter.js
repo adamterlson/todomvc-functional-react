@@ -1,5 +1,5 @@
 import React from 'react';
-import compose from './compose';
+import compose from '../compose';
 import todoStore from '../store';
 
 import Button from '../presentational/Button';
@@ -11,14 +11,13 @@ const ButtonSetFilter = compose(
     usingStore(
         todoStore,
         (state, { filter }) => ({
-            children: filter,
             active: state.activeFilter === filter,
         })
     ),
     updateStore(
         todoStore,
         (set, { filter }) => ({
-            onPress: () => set(state => ({
+            onClick: () => set(state => ({
                 ...state,
                 activeFilter: filter,
             }))

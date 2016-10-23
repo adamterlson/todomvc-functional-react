@@ -1,13 +1,5 @@
-import React from 'react';
-
-const ComposeWith = (props) => (
-    <div>
-        {props.children(props)}
-    </div>
-);
-
-ComposeWith.propTypes = {
-    children: React.PropTypes.func.isRequired,
-};
-
-export default ComposeWith;
+/**
+ * The children prop is executed with the props given to this
+ * component so as it invert the control over its display.
+ */
+export default props => props.children(props);

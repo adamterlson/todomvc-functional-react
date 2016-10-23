@@ -1,4 +1,4 @@
-import compose from './compose';
+import compose from '../compose';
 import todoStore from '../store';
 
 import ListView from '../presentational/ListView';
@@ -9,13 +9,14 @@ import usingStore from '../enhancers/usingStore';
 import ButtonSetFilter from './ButtonSetFilter';
 
 export default compose(
-    listOf(ButtonSetFilter),
+    listOf(ButtonSetFilter, filter => ({
+        filter,
+        children: filter,
+    })),
     usingStore(
         todoStore,
         state => ({
-            dataSource: state.filters.map(filter => ({
-                filter
-            })),
+            dataSource: state.filters,
         })
     )
 )(ListView);

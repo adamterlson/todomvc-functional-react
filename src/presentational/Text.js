@@ -10,12 +10,21 @@ const Text = ({
     fontSize,
     fontWeight,
     color,
+    padding,
+    border,
+    borderRadius,
 }) => (
-    <span style={{
-        color: colors[color],
-        fontSize: fontSize + 'px',
-        fontWeight,
-    }}>{children}</span>
+    <span
+        style={{
+            border,
+            borderRadius,
+            color: colors[color],
+            fontSize: fontSize + 'px',
+            fontWeight,
+            padding,
+        }}
+        children={children}
+    />
 );
 
 Text.propTypes = {

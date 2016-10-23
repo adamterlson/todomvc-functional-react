@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from './Container';
 
-const RowOfItems = (props) => (
+const RowContainer = (props) => (
     <Container
         {...props}
         flexDirection="row"
@@ -9,4 +9,4 @@ const RowOfItems = (props) => (
         centered />
 );
 
-export default RowOfItems;
+export default RowContainer;
