@@ -10,7 +10,10 @@ export default (store, getMap = noop) => Component => {
             this.state = store.get();
         }
         componentWillMount() {
-            store.subscribe(() => this.setState(store.get()));
+            this.unsubscribe = store.subscribe(() => this.setState(store.get()));
+        }
+        componentWillUnmount() {
+            this.unsubscribe();
         }
         render() {
             const props = this.props;

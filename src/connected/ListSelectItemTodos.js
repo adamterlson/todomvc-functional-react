@@ -22,10 +22,8 @@ export default compose(
                         return true;
                     }
                 )
-                .map(todo => todo.todoId)
+                .map(({ todoId }) => ({ todoId }))
         })
     ),
-    listOf(SelectItemTodo, todoId => ({
-        todoId,
-    })),
+    listOf(SelectItemTodo),
 )(ListView);
