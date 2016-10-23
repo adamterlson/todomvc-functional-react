@@ -3,12 +3,20 @@ import store from '../store';
 
 import SelectItem from '../presentational/SelectItem';
 import requires from '../enhancers/requires';
+import usingStore from '../enhancers/usingStore';
 import updateStore from '../enhancers/updateStore';
 
 const SelectItemTodo = compose(
     requires(PropTypes => ({
         todoId: PropTypes.string.isRequired,
     })),
+    usingStore(
+        store,
+        (state, { todoId }) => ({
+            selected: state.todos
+                .filter(todo => todo.todoId === todoId)[0].completed,
+        })
+    ),
     updateStore(
         store,
         (set, { todoId }) => ({

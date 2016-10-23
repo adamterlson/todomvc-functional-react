@@ -1,12 +1,9 @@
 import compose from '../compose';
-import store from '../store';
-
 import TextInput from '../presentational/TextInput';
 
 import keyboardBindings from '../enhancers/keyboardBindings';
-import propMap from '../enhancers/propMap';
 import updateState from '../enhancers/updateState';
-import updateStore from '../enhancers/updateStore';
+import createTodo from '../enhancers/createTodo';
 
 export default compose(
     updateState(
@@ -22,28 +19,14 @@ export default compose(
             }))
         }),
     ),
-    updateStore(
-        store,
-        set => ({
-            onSave: description =>
-                set(state => ({
-                    ...state,
-                    todos: [
-                        ...state.todos,
-                        { description }
-                    ],
-                })),
+    createTodo(
+        create => ({
+            onSave: create
         })
     ),
     keyboardBindings('onKeyDown', (listenTo, { onSave, onClear }) => {
         listenTo('Enter', onSave);
         listenTo('Enter', onClear);
         listenTo('Escape', onClear);
-    }),
-    propMap(
-        props => ({
-            ...props,
-            onChange: props.onChange,
-        })
-    )
+    })
 )(TextInput);

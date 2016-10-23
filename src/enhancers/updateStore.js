@@ -3,10 +3,9 @@ import React from 'react';
 const noop = x => x;
 
 export default (store, setMap = noop) => Component => {
-    class ChangesStateHOC extends React.PureComponent {
+    class UpdateStoreHOC extends React.PureComponent {
         constructor(props) {
             super(props);
-
             this.state = store.get();
         }
         componentWillMount() {
@@ -27,5 +26,5 @@ export default (store, setMap = noop) => Component => {
         }
     };
 
-    return ChangesStateHOC;
+    return UpdateStoreHOC;
 }

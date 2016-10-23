@@ -24,8 +24,7 @@ export default compose(
         })
     ),
     listOf(SelectItemTodo, todo => ({
-        todoId: todo.description,
-        selected: todo.completed,
+        todoId: todo.todoId,
         children: todo.description,
     })),
 )(ListView);

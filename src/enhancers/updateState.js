@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default (initialState, setMap) => Component => {
-    class WithStoreHOC extends React.PureComponent {
+    class UpateStateHOC extends React.PureComponent {
         constructor(props) {
             super(props);
 
@@ -27,5 +27,5 @@ export default (initialState, setMap) => Component => {
         }
     };
 
-    return WithStoreHOC;
+    return UpateStateHOC;
 }
