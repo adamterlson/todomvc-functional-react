@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (event, register, exec) => Component => {
+export default (event, register) => Component => {
     const KeyboardBindingsHOC = props => {
         const cbs = [];
 
